@@ -24,7 +24,7 @@ from_='foo'
 
 5. Run worker process.
 
-```celery -A djangoProject1 worker -1```
+```celery -A hw_10_celery worker --loglevel=INFO```
 
 6. Run Django web server.
 
