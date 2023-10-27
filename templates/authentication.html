@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Аутентификация</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        form {
+            max-width: 400px;
+            margin: auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 8px; /* Уменьшен отступ между полем и кнопкой */
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #0d9aea;
+            color: #ffffff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #1d77aa;
+        }
+    </style>
+</head>
+<body>
+
+<form method="post" action="{% url 'authentication' %}">
+    {% csrf_token %}
+
+    <h4>На указанный номер придет смс с кодом для подтверждения</h4>
+    <label for="authentication">Введите номер телефона:</label>
+
+    {{ form.authentication }}
+
+    <button type="submit">Отправить SMS</button>
+</form>
+</body>
+</html>
